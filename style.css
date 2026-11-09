@@ -182,4 +182,16 @@ a:hover .u,a:focus-visible .u{background-size:100% 1px}
 .foot p{flex:1 1 280px}
 .foot-links{display:flex;flex-wrap:wrap;gap:0 22px}
 
+/* phones: all five tabs fit in one row, smaller logo */
+@media (max-width:480px){
+  .brand img{height:52px}
+  .tabs{gap:3px;font-size:12px}
+  .tabs li{flex:1 1 auto}
+  .tabs a{width:100%;justify-content:center;padding:0 7px}
+}
+@media (max-width:350px){
+  .tabs{font-size:11px}
+  .tabs a{padding:0 4px}
+}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
