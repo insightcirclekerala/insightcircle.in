@@ -1,8 +1,7 @@
 title: Insight Circle
 description: A calm, reflective space for meaningful conversations on psychosocial themes, lived experience, and shared learning.
-# While the site lives at insightcirclekerala.github.io/insightcircle.in, keep this.
-# When insightcircle.in is connected as the custom domain, change it to: baseurl: ""
-baseurl: /insightcircle.in
+# The site is served from the custom domain insightcircle.in, so no base path is needed.
+baseurl: ""
 markdown: kramdown
 
 collections:

@@ -3,8 +3,8 @@ backend:
   repo: insightcirclekerala/insightcircle.in
   branch: main
 
-site_url: https://insightcirclekerala.github.io/insightcircle.in/
-display_url: https://insightcirclekerala.github.io/insightcircle.in/
+site_url: https://insightcircle.in/
+display_url: https://insightcircle.in/
 
 media_folder: assets/uploads
 public_folder: /assets/uploads
