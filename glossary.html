@@ -1,36 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="claude:viewport-fit-sides" content="cover">
-<title>Re-Ship Glossary · Insight Circle</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;700&display=swap">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="top gutter">
-  <div class="wrap">
-    <div class="brand-row">
-      <a class="brand" href="index.html" aria-label="Insight Circle, home"><img src="logo.png" alt="Insight Circle" width="49" height="64"></a>
-      <span class="brand-note">a reflective<br>space</span>
-    </div>
-    <nav aria-label="Primary">
-      <ul class="tabs">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="anecdote.html">Anecdote</a></li>
-        <li><a href="programs.html" aria-current="page">Programs</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main id="main" class="ruled gutter">
-  <div class="wrap page">
-
+---
+layout: default
+title: Re-Ship Glossary
+nav: programs
+---
+{% assign terms = site.glossary | sort: "title" %}
     <header class="page-head">
       <span class="pmark"><a href="programs.html" style="color:var(--meta)">Programs</a> / Re-Ship Glossary</span>
       <h1>Re-Ship <span class="circled">Glossary<svg aria-hidden="true" viewBox="0 0 300 110" preserveAspectRatio="none"><path class="draw" d="M150 8C85 6 18 22 12 58c-5 32 60 46 140 44 74-2 138-16 136-48-2-33-70-46-150-42-30 2-55 8-70 16" fill="none" stroke="#A83E2C" stroke-width="2.4" stroke-linecap="round"/></svg></span></h1>
@@ -54,87 +27,19 @@
         <input id="q" type="search" placeholder="Look up a word…" autocomplete="off">
       </div>
       <ul class="index-letters" aria-label="Jump to a word">
-        <li><a href="#benching">Benching</a></li>
-        <li><a href="#cat-fishing">Cat Fishing</a></li>
-        <li><a href="#divorce-rebound">Divorce Rebound</a></li>
-        <li><a href="#fused-relationship">Fused Relationship</a></li>
-        <li><a href="#gamophobia">Gamophobia</a></li>
-        <li><a href="#hard-balling">Hard Balling</a></li>
-        <li><a href="#misandry">Misandry</a></li>
-        <li><a href="#orbiting">Orbiting</a></li>
-        <li><a href="#sleep-divorce">Sleep Divorce</a></li>
-        <li><a href="#work-spouse">Work Spouse</a></li>
-      </ul>
-      <p id="count" class="pmark" aria-live="polite">10 words</p>
+{% for t in terms %}        <li><a href="#{{ t.slug }}">{{ t.title }}</a></li>
+{% endfor %}      </ul>
+      <p id="count" class="pmark" aria-live="polite">{{ terms.size }} words</p>
 
       <ol id="terms" class="entries">
-        <li id="divorce-rebound">
-          <div class="entry-title"><h3 class="term-name">Divorce Rebound</h3></div>
-          <div class="entry-body"><p>A divorce rebound describes entering a new romantic relationship shortly after a divorce, often during a period of emotional adjustment and change.</p></div>
-        </li>
-        <li id="orbiting">
-          <div class="entry-title"><h3 class="term-name">Orbiting</h3></div>
+{% for t in terms %}        <li id="{{ t.slug }}">
+          <div class="entry-title"><h3 class="term-name">{{ t.title }}</h3></div>
           <div class="entry-body">
-            <p>Orbiting refers to a pattern where someone ends a romantic or dating relationship but continues to remain present at the margins of the other person’s life. This often shows up through indirect engagement such as liking posts, viewing stories, or making occasional comments, without initiating direct communication or committing to a relationship.</p>
-            <p class="hand" style="font-size:24px;color:var(--red);line-height:1.2">The connection remains visible, but unresolved.</p>
-          </div>
+            <div class="md">{{ t.content | markdownify }}</div>
+{% if t.note and t.note != "" %}            <p class="hand" style="font-size:24px;color:var(--red);line-height:1.2">{{ t.note }}</p>
+{% endif %}          </div>
         </li>
-        <li id="benching">
-          <div class="entry-title"><h3 class="term-name">Benching</h3></div>
-          <div class="entry-body">
-            <p>Benching refers to keeping someone as a potential romantic partner without actively engaging in a committed relationship. The term is commonly used to describe situations where a person maintains intermittent contact, keeping the connection available as a backup rather than as a primary relationship.</p>
-            <p class="soft">The word comes from team sports, where substitute players wait on the bench until they are called into the game. In relational contexts, benching often reflects uncertainty, avoidance of commitment, or a desire to keep options open without clarity about mutual expectations.</p>
-          </div>
-        </li>
-        <li id="work-spouse">
-          <div class="entry-title"><h3 class="term-name">Work Spouse</h3></div>
-          <div class="entry-body">
-            <p>A work spouse refers to a close, non-romantic relationship between two coworkers that mirrors some relational dynamics commonly associated with marriage. Such a bond may involve deep trust, emotional support, frequent interaction, and a high level of personal disclosure within the workplace. The connection often develops through shared responsibilities, long hours, and sustained collaboration.</p>
-            <p class="soft">While the term is traditionally used to describe relationships between colleagues of the opposite sex, it can also apply to same-sex colleagues.</p>
-          </div>
-        </li>
-        <li id="gamophobia">
-          <div class="entry-title"><h3 class="term-name">Gamophobia</h3></div>
-          <div class="entry-body">
-            <p>Gamophobia refers to a persistent fear or strong anxiety associated with marriage or long-term commitment. It may be expressed in different ways, including:</p>
-            <ul class="bullets">
-              <li>Fear of losing personal autonomy or independence</li>
-              <li>Anxiety about long-term responsibility</li>
-              <li>Concern about the possibility of relational failure or distress</li>
-            </ul>
-            <p class="soft">Such fears can influence relationship choices, life planning, and decision-making around intimacy and commitment. In public discourse, the term is often used to describe changing attitudes toward marriage among younger adults, especially in contexts where social expectations around relationships are shifting.</p>
-          </div>
-        </li>
-        <li id="misandry">
-          <div class="entry-title"><h3 class="term-name">Misandry</h3></div>
-          <div class="entry-body">
-            <p>Misandry refers to prejudice against, or hostility toward, men or boys. It is commonly described as the conceptual opposite of misogyny, which refers to prejudice against women.</p>
-            <p class="soft">In public and academic discourse, misandry is often discussed in relation to broader conversations about gender, power, and social response to inequality. Its usage varies widely, and meanings can shift depending on context. The term is sometimes invoked in interpersonal or social conflicts, where perceptions of bias, grievance, or injustice are present.</p>
-          </div>
-        </li>
-        <li id="fused-relationship">
-          <div class="entry-title"><h3 class="term-name">Fused Relationship</h3></div>
-          <div class="entry-body">
-            <p>A fused relationship refers to a relational pattern where emotional boundaries between individuals become blurred, and personal identities are closely intertwined. In such relationships, individuals may feel highly responsible for one another’s emotions, remain strongly attuned to the other’s reactions or opinions, and experience a reduced sense of personal space, interests, or autonomy.</p>
-            <p class="soft">The term is often used to describe situations where closeness makes it difficult to distinguish where one person’s feelings, needs, or choices end and another’s begin.</p>
-          </div>
-        </li>
-        <li id="cat-fishing">
-          <div class="entry-title"><h3 class="term-name">Cat Fishing</h3></div>
-          <div class="entry-body">
-            <p>Catfishing refers to the practice of presenting a false or fabricated identity in online spaces, particularly on social media or dating platforms. This may involve using altered images, misleading personal details, or an entirely fictional persona to initiate or sustain a connection. The interaction is built on an identity that does not correspond to the person behind it.</p>
-            <p class="soft">When such misrepresentation comes to light, it can disrupt trust and leave relationships feeling unsettled or unclear. The term invites reflection on how anonymity, desire, and digital distance shape intimacy and authenticity in online relationships.</p>
-          </div>
-        </li>
-        <li id="sleep-divorce">
-          <div class="entry-title"><h3 class="term-name">Sleep Divorce</h3></div>
-          <div class="entry-body"><p>A sleep divorce refers to a mutually agreed arrangement in which partners choose to sleep in separate beds or rooms in order to improve sleep quality and overall well-being.</p></div>
-        </li>
-        <li id="hard-balling">
-          <div class="entry-title"><h3 class="term-name">Hard Balling</h3></div>
-          <div class="entry-body"><p>Hard balling refers to a dating approach in which individuals clearly state what they want from a relationship, whether casual, serious, or undecided, right at the beginning, rather than leaving expectations vague.</p></div>
-        </li>
-      </ol>
+{% endfor %}      </ol>
       <p id="empty" class="empty" hidden>No word matches that yet. Words are added as they come up in the Circle.</p>
     </section>
 
@@ -143,24 +48,9 @@
         <span class="pmark">Let’s stay in conversation</span>
         <h2 id="stay-h">If something here stays with you,</h2>
         <p>you’re welcome to remain connected. Insight Circle continues through shared reflection, quiet listening, and ongoing conversations that unfold over time.</p>
-        <div class="actions"><a class="btn red" href="https://chat.whatsapp.com/JpQEXyG48XyFv5FRiEaklS">Stay connected →</a></div>
+        <div class="actions"><a class="btn red" href="{{ site.data.settings.whatsapp_url }}">Stay connected →</a></div>
       </div>
     </section>
-
-  </div>
-</main>
-
-<footer class="foot gutter">
-  <div class="wrap">
-    <img src="logo.png" alt="Insight Circle" width="43" height="56">
-    <p>Insight Circle is a reflective space. It is not a service, clinic or advisory platform.<br>© 2026 Insight Circle</p>
-    <div class="foot-links">
-      <a href="team.html"><span class="u">The team</span></a>
-      <a href="https://www.instagram.com/insightcircle.in/"><span class="u">Instagram</span></a>
-      <a href="https://chat.whatsapp.com/JpQEXyG48XyFv5FRiEaklS"><span class="u">WhatsApp group</span></a>
-    </div>
-  </div>
-</footer>
 
 <script>
 (function(){
@@ -178,5 +68,3 @@
   q.addEventListener('input', run);
 })();
 </script>
-</body>
-</html>

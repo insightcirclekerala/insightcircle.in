@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{% if page.title %}{{ page.title }} · Insight Circle{% else %}Insight Circle{% endif %}</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top gutter">
+  <div class="wrap">
+    <div class="brand-row">
+      <a class="brand" href="index.html" aria-label="Insight Circle, home"><img src="logo.png" alt="Insight Circle" width="49" height="64"></a>
+      <span class="brand-note">a reflective<br>space</span>
+    </div>
+    <nav aria-label="Primary">
+      <ul class="tabs">
+        <li><a href="index.html"{% if page.nav == "home" %} aria-current="page"{% endif %}>Home</a></li>
+        <li><a href="about.html"{% if page.nav == "about" %} aria-current="page"{% endif %}>About</a></li>
+        <li><a href="anecdote.html"{% if page.nav == "anecdote" %} aria-current="page"{% endif %}>Anecdote</a></li>
+        <li><a href="programs.html"{% if page.nav == "programs" %} aria-current="page"{% endif %}>Programs</a></li>
+        <li><a href="contact.html"{% if page.nav == "contact" %} aria-current="page"{% endif %}>Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="ruled gutter">
+  <div class="wrap page">
+{{ content }}
+  </div>
+</main>
+
+<footer class="foot gutter">
+  <div class="wrap">
+    <img src="logo.png" alt="Insight Circle" width="43" height="56">
+    <p>Insight Circle is a reflective space. It is not a service, clinic or advisory platform.<br>© {{ site.time | date: "%Y" }} Insight Circle</p>
+    <div class="foot-links">
+      <a href="team.html"><span class="u">The team</span></a>
+      <a href="{{ site.data.settings.instagram_url }}"><span class="u">Instagram</span></a>
+      <a href="{{ site.data.settings.whatsapp_url }}"><span class="u">WhatsApp group</span></a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

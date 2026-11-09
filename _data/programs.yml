@@ -1,0 +1,49 @@
+programs:
+  - anchor: anecdote
+    name: Anecdote
+    summary: A conversational space within Insight Circle where lived experiences become starting points for deeper reflection.
+    details: Rather than lectures or debates, Anecdote sessions unfold as gentle, thoughtful conversations grounded in real life, attentive listening, and shared meaning-making.
+    link: anecdote.html
+    audience: ""
+  - anchor: one-word-wisdom
+    name: One Word Wisdom
+    summary: A reflective practice where a single word becomes an invitation to slow down, notice, and listen inwardly.
+    details: Rather than explanations or definitions, each word is offered as a moment of pause, allowing meaning to emerge through reflection and lived experience.
+    link: one-word-wisdom.html
+    audience: ""
+  - anchor: case-insights
+    name: Case Insights
+    summary: A space for reflective learning drawn from real-world situations.
+    details: Rather than focusing on outcomes or opinions, it invites thoughtful exploration of context, relationships, and underlying dynamics. Each insight encourages careful listening, ethical awareness, and deeper understanding of human experience.
+    link: ""
+    audience: ""
+  - anchor: snap-and-share
+    name: Snap & Share
+    summary: Reflection through photography. An image becomes a starting point for noticing, remembering, questioning, or sharing a personal perspective.
+    details: The emphasis is not on photographic skill, but on the meaning a photograph holds for the person who shares it. Images are shared only with permission and with attention to privacy.
+    link: ""
+    audience: ""
+  - anchor: book-podcast-article
+    name: Book / Podcast / Article
+    summary: A reflective sharing space where members talk about the most recent book, podcast, or article that stayed with them, and why it mattered.
+    details: Held toward the end of each month, it invites slow reading, thoughtful listening, and shared meaning rather than reviews or recommendations.
+    link: ""
+    audience: ""
+  - anchor: re-ship-glossary
+    name: Re-Ship Glossary
+    summary: A reflective space to notice, hold, and sit with evolving terms and concepts that shape our relationships and inner worlds.
+    details: ""
+    link: glossary.html
+    audience: ""
+  - anchor: word-power
+    name: "Reflection: Word Power"
+    summary: Invites members to notice and reflect on the words, phrases, and sentences that quietly shape thoughts, emotions, and interactions.
+    details: ""
+    link: ""
+    audience: ""
+  - anchor: talk-series
+    name: Talk Series
+    summary: A structured yet approachable space where focused topics are explored to strengthen professional understanding, practice, and competence through shared learning and dialogue.
+    details: The Talk Series is intended for professionals working within formal, accountable systems and remains distinct from Insight Circle’s open reflective conversations. It is an internal peer learning space and does not constitute formal training, certification, or institutional instruction.
+    link: ""
+    audience: For professionals in formal, accountable systems

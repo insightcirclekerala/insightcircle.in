@@ -1,0 +1,132 @@
+backend:
+  name: github
+  repo: insightcirclekerala/insightcircle.in
+  branch: main
+
+site_url: https://insightcirclekerala.github.io/insightcircle.in/
+display_url: https://insightcirclekerala.github.io/insightcircle.in/
+
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+collections:
+  - name: anecdotes
+    label: Anecdotes
+    label_singular: Anecdote
+    description: Past Anecdote conversations. They appear on the Anecdote page and the first four on the home page.
+    folder: _anecdotes
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: [order, title]
+    summary: "{{order}}. {{title}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - label: Held with
+        name: held_with
+        widget: string
+        hint: "Name(s) of the person who held the Anecdote. To add a link, write it like this: Anil & [Juan Joy](https://juanjoy.in)"
+      - label: Position in the list
+        name: order
+        widget: number
+        value_type: int
+        default: 1
+        hint: "1 shows first. The first four also appear on the home page."
+      - label: Opening line
+        name: summary
+        widget: text
+        hint: One or two sentences that introduce the conversation.
+      - label: Reflection
+        name: body
+        widget: markdown
+        hint: The rest of the description. Leave an empty line between paragraphs.
+      - label: Handwritten closing note
+        name: closing_note
+        widget: string
+        required: false
+        hint: Optional. A short line shown in red handwriting at the end.
+
+  - name: glossary
+    label: Re-Ship Glossary
+    label_singular: Term
+    description: Words in the Re-Ship Glossary. They are listed alphabetically on the site.
+    folder: _glossary
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: [title]
+    fields:
+      - { label: Word or term, name: title, widget: string }
+      - label: Meaning and reflection
+        name: body
+        widget: markdown
+        hint: The first paragraph is shown in dark ink, the rest a little lighter. Use a list for points.
+      - label: Handwritten note
+        name: note
+        widget: string
+        required: false
+        hint: Optional. A short line shown in red handwriting.
+
+  - name: words
+    label: One Word Wisdom
+    label_singular: Word cloud
+    description: Word clouds from One Word Wisdom. The first four themes also appear on the home page.
+    folder: _words
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: [order, title]
+    summary: "{{order}}. {{title}}"
+    fields:
+      - { label: Theme, name: title, widget: string }
+      - label: Word cloud image
+        name: image
+        widget: image
+        required: false
+        hint: Portrait images (like a phone screenshot) fit best.
+      - label: Position in the gallery
+        name: order
+        widget: number
+        value_type: int
+        default: 1
+
+  - name: site
+    label: Site content
+    files:
+      - name: programs
+        label: Programs
+        file: _data/programs.yml
+        fields:
+          - label: Programs
+            name: programs
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - label: Page anchor
+                name: anchor
+                widget: string
+                hint: "Short id used in links, lowercase with hyphens, e.g. case-insights"
+              - { label: Short description, name: summary, widget: text }
+              - { label: More detail, name: details, widget: text, required: false }
+              - label: Link to its page
+                name: link
+                widget: string
+                required: false
+                hint: "e.g. anecdote.html. Leave empty to show 'Page in preparation'."
+              - label: Audience stamp
+                name: audience
+                widget: string
+                required: false
+                hint: "Optional red stamp, e.g. For professionals in formal, accountable systems"
+      - name: settings
+        label: Contact & Anecdote notice
+        file: _data/settings.yml
+        fields:
+          - { label: Email address, name: email, widget: string }
+          - { label: Instagram link, name: instagram_url, widget: string }
+          - { label: Instagram handle, name: instagram_handle, widget: string }
+          - { label: WhatsApp group link, name: whatsapp_url, widget: string }
+          - label: Show the forthcoming Anecdote card
+            name: forthcoming_show
+            widget: boolean
+            default: true
+          - { label: Forthcoming Anecdote heading, name: forthcoming_title, widget: string, required: false }
+          - { label: Forthcoming Anecdote text, name: forthcoming_text, widget: text, required: false }

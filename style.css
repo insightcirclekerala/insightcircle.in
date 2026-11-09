@@ -182,6 +182,16 @@ a:hover .u,a:focus-visible .u{background-size:100% 1px}
 .foot p{flex:1 1 280px}
 .foot-links{display:flex;flex-wrap:wrap;gap:0 22px}
 
+/* text that comes from the CMS */
+.md{display:flex;flex-direction:column;gap:14px}
+.md > p:not(:first-child){color:var(--ink-soft)}
+.md.soft > p{color:var(--ink-soft)}
+.md ul,.md ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.md li::marker{color:var(--red)}
+.md a,.by-line a,.by a{color:var(--red);text-underline-offset:3px}
+.shot.has-img{padding:0;background:none}
+.shot.has-img img{display:block;width:100%;height:100%;object-fit:cover}
+
 /* phones: all five tabs fit in one row, smaller logo */
 @media (max-width:480px){
   .brand img{height:52px}
