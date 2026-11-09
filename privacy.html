@@ -1,0 +1,33 @@
+---
+layout: default
+title: Privacy
+description: "How the Insight Circle website handles personal data: what the contact form collects, how visits are measured, and how to reach us."
+---
+{% assign s = site.data.settings %}
+    <header class="page-head">
+      <span class="pmark">Privacy</span>
+      <h1>Privacy, kept simple</h1>
+      <p class="lead">Insight Circle is a non-commercial reflective space. We collect as little as we can, and we do not sell or share personal data for advertising.</p>
+    </header>
+
+    <section class="entry" aria-label="Privacy details">
+      <div class="stack">
+        <span class="pmark">Entry 01 — The contact form</span>
+        <p>When you write to us through the contact page, the details you choose to enter (such as your name, email address and message) are passed to FormSubmit, a form-delivery service, and arrive in our email inbox. We use them only to reply to you.</p>
+
+        <span class="pmark">Entry 02 — Measuring visits</span>
+{% if site.ga4_id != "" %}
+        <p>We use Google Analytics 4 to understand, in aggregate, how many people visit and which pages they read. Google Analytics sets cookies in your browser to do this. We have switched off Google signals and advertising personalisation, and we do not use analytics data to identify individual visitors or to show ads.</p>
+        <p class="soft">You can block these cookies in your browser settings, or use Google's opt-out add-on, without affecting how the site works.</p>
+{% else %}
+        <p>This website does not currently use analytics or tracking cookies.</p>
+{% endif %}
+
+        <span class="pmark">Entry 03 — Other services</span>
+        <p>Fonts are loaded from Google Fonts. Links to Instagram and WhatsApp take you to those services, which have their own privacy policies.</p>
+
+        <span class="pmark">Entry 04 — Talking to us</span>
+        <p>For any question about your data, or to ask us to delete a message you sent, write to <a href="mailto:{{ s.email }}">{{ s.email }}</a>.</p>
+        <p class="soft">Last updated: 9 November 2026</p>
+      </div>
+    </section>
