@@ -82,14 +82,14 @@ nav: contact
       say('Please add your name and a valid email so we can write back.');
       (!name?n:m).focus(); return;
     }
-    var data=new FormData(f);
-    data.append('_replyto', email);
+    var data={}; new FormData(f).forEach(function(v,k){ data[k]=v; });
+    data._replyto=email;
     b.disabled=true; b.textContent='Sending…';
-    fetch(f.action.replace('formsubmit.co/','formsubmit.co/ajax/'), {method:'POST', headers:{'Accept':'application/json'}, body:data})
-      .then(function(r){ return r.json().then(function(j){ return {ok:r.ok, j:j}; }); })
+    fetch(f.action.replace('formsubmit.co/','formsubmit.co/ajax/'), {method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body:JSON.stringify(data)})
+      .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return {ok:r.ok, j:j}; }); })
       .then(function(res){
         if(res.ok && String(res.j.success)==='true'){ f.reset(); say('Thank you. Your message has reached the Circle. We’ll write back when we can.'); }
-        else { say('Sorry, the message could not be sent just now. Please try again in a moment, or write to us at the email address on this page.'); }
+        else { say('Sorry, the message could not be sent just now.' + (res.j && res.j.message ? ' ('+res.j.message+')' : ' Please try again in a moment, or write to us at the email address on this page.')); }
       })
       .catch(function(){ say('Sorry, the message could not be sent just now. Please check your connection and try again, or write to us at the email address on this page.'); })
       .then(function(){ b.disabled=false; b.textContent='Send now →'; });
