@@ -2,6 +2,22 @@ title: Insight Circle
 description: A calm, reflective space for meaningful conversations on psychosocial themes, lived experience, and shared learning.
 # The site is served from the custom domain insightcircle.in, so no base path is needed.
 baseurl: ""
+url: "https://insightcircle.in"
+lang: en_IN
+tagline: A Reflective Space for Conversation and Shared Learning
+logo: /logo.png
+title_separator: "·"
+social:
+  name: Insight Circle
+  links:
+    - https://www.instagram.com/insightcircle.in/
+
+# Google Analytics 4 Measurement ID (G-XXXXXXX). Leave empty to switch analytics off.
+ga4_id: ""
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
 markdown: kramdown
 
 collections:
@@ -14,3 +30,27 @@ collections:
 
 exclude:
   - README.md
+
+defaults:
+  - scope: { path: "admin" }
+    values: { sitemap: false }
+  # Search descriptions for each page (shown in Google results)
+  - scope: { path: "index.html" }
+    values: { description: "Insight Circle is a reflective space in Kerala for meaningful conversations on relationships, psychosocial themes, lived experience and shared learning." }
+  - scope: { path: "about.html" }
+    values: { description: "Why Insight Circle exists: a reflective space for psychosocial professionals and learners in Kerala and India, grounded in listening and shared learning." }
+  - scope: { path: "anecdote.html" }
+    values: { description: "Anecdote: an Insight Circle conversation format where lived experiences are shared as stories that invite pause, listening and reflection." }
+  - scope: { path: "programs.html" }
+    values: { description: "Insight Circle's reflective practices: Anecdote, Talk Series, Case Insights, Word Power, One Word Wisdom, Re-Ship Glossary and more." }
+  - scope: { path: "contact.html" }
+    values: { description: "Contact Insight Circle with a question, reflection or idea. This is not a counselling, legal or advisory service." }
+  - scope: { path: "one-word-wisdom.html" }
+    values: { description: "One Word Wisdom: a shared reflective practice where a single word opens a conversation about experience, relationships and meaning." }
+  - scope: { path: "glossary.html" }
+    values: { description: "Re-Ship Glossary: plain-language reflections on relationship terms such as orbiting, benching, catfishing, sleep divorce and work spouse." }
+  - scope: { path: "team.html" }
+    values: { description: "The people who hold Insight Circle together, a reflective space shaped by listening, shared learning and care." }
+  - scope: { path: "404.html" }
+    values: { sitemap: false, robots: noindex }
+
