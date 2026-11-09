@@ -14,7 +14,11 @@ nav: contact
       <div class="letter" style="max-width:none">
         <span class="pmark">Get in touch</span>
         <h2>Dear Insight Circle,</h2>
-        <form id="contact-form" class="form" novalidate>
+        <form id="contact-form" class="form" action="https://formsubmit.co/{{ s.form_email }}" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New message from the Insight Circle website">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://insightcircle.in/contact.html?sent=1">
+          <p hidden><label>Leave this empty <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></p>
           <div class="field">
             <label for="name">Your name <span class="req" aria-hidden="true">*</span></label>
             <input id="name" name="name" type="text" autocomplete="name" required>
@@ -67,17 +71,28 @@ nav: contact
 
 <script>
 (function(){
-  var f=document.getElementById('contact-form'), s=document.getElementById('status');
+  var f=document.getElementById('contact-form'), s=document.getElementById('status'), b=f.querySelector('button[type=submit]');
+  function say(msg){ s.textContent=msg; s.hidden=false; }
+  if(/[?&]sent=1/.test(location.search)) say('Thank you. Your message has reached the Circle. We’ll write back when we can.');
   f.addEventListener('submit', function(e){
     e.preventDefault();
     var n=document.getElementById('name'), m=document.getElementById('email');
     var name=n.value.trim(), email=m.value.trim();
     if(!name || !email || email.indexOf('@')<1){
-      s.textContent='Please add your name and a valid email so we can write back.';
-      s.hidden=false; (!name?n:m).focus(); return;
+      say('Please add your name and a valid email so we can write back.');
+      (!name?n:m).focus(); return;
     }
-    s.textContent='Thank you. This form isn’t connected yet, so your message hasn’t been sent. Please write to us at the email address on this page for now.';
-    s.hidden=false;
+    var data=new FormData(f);
+    data.append('_replyto', email);
+    b.disabled=true; b.textContent='Sending…';
+    fetch(f.action.replace('formsubmit.co/','formsubmit.co/ajax/'), {method:'POST', headers:{'Accept':'application/json'}, body:data})
+      .then(function(r){ return r.json().then(function(j){ return {ok:r.ok, j:j}; }); })
+      .then(function(res){
+        if(res.ok && String(res.j.success)==='true'){ f.reset(); say('Thank you. Your message has reached the Circle. We’ll write back when we can.'); }
+        else { say('Sorry, the message could not be sent just now. Please try again in a moment, or write to us at the email address on this page.'); }
+      })
+      .catch(function(){ say('Sorry, the message could not be sent just now. Please check your connection and try again, or write to us at the email address on this page.'); })
+      .then(function(){ b.disabled=false; b.textContent='Send now →'; });
   });
 })();
 </script>

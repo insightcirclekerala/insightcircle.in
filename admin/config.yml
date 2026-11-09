@@ -121,6 +121,10 @@ collections:
         file: _data/settings.yml
         fields:
           - { label: Email address, name: email, widget: string }
+          - label: Contact form inbox
+            name: form_email
+            widget: string
+            hint: Messages from the contact form are emailed here.
           - { label: Instagram link, name: instagram_url, widget: string }
           - { label: Instagram handle, name: instagram_handle, widget: string }
           - { label: WhatsApp group link, name: whatsapp_url, widget: string }
