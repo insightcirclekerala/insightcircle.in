@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Contact · Insight Circle</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top gutter">
+  <div class="wrap">
+    <div class="brand-row">
+      <a class="brand" href="index.html" aria-label="Insight Circle, home"><img src="logo.png" alt="Insight Circle" width="49" height="64"></a>
+      <span class="brand-note">a reflective<br>space</span>
+    </div>
+    <nav aria-label="Primary">
+      <ul class="tabs">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="anecdote.html">Anecdote</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="ruled gutter">
+  <div class="wrap page">
+
+    <header class="page-head">
+      <span class="pmark">Contact us</span>
+      <h1>Talk to <span class="circled">us<svg aria-hidden="true" viewBox="0 0 300 110" preserveAspectRatio="none"><path class="draw" d="M150 8C85 6 18 22 12 58c-5 32 60 46 140 44 74-2 138-16 136-48-2-33-70-46-150-42-30 2-55 8-70 16" fill="none" stroke="#A83E2C" stroke-width="2.4" stroke-linecap="round"/></svg></span></h1>
+      <p class="lead">Whether you have a question, a reflection, or simply want to connect, we welcome conversations that are thoughtful, respectful, and human.</p>
+    </header>
+
+    <section class="entry two" aria-label="Get in touch">
+      <div class="letter" style="max-width:none">
+        <span class="pmark">Get in touch</span>
+        <h2>Dear Insight Circle,</h2>
+        <form id="contact-form" class="form" novalidate>
+          <div class="field">
+            <label for="name">Your name <span class="req" aria-hidden="true">*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="source">How did you come across Insight Circle?</label>
+            <select id="source" name="source">
+              <option value="">Choose one</option>
+              <option>Instagram</option>
+              <option>WhatsApp Group</option>
+              <option>Through a colleague</option>
+              <option>Online search</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5"></textarea>
+          </div>
+          <p class="form-note">* Required</p>
+          <button class="btn red" type="submit">Send now →</button>
+          <p id="status" class="form-status" role="status" hidden></p>
+        </form>
+      </div>
+
+      <div class="stack" style="gap:28px">
+        <div class="stack" style="gap:8px">
+          <h2 class="label">Other ways to reach us</h2>
+          <ul class="contact-list">
+            <li><span class="label">Email</span><span class="v">contact@staging.insightcircle.in</span></li>
+            <li><span class="label">Instagram</span><a class="v" href="https://www.instagram.com/insightcircle.in/" style="color:var(--ink);text-decoration:none"><span class="u">@insightcircle.in</span></a></li>
+            <li><span class="label">WhatsApp</span><a class="v" href="https://chat.whatsapp.com/JpQEXyG48XyFv5FRiEaklS" style="color:var(--ink);text-decoration:none"><span class="u">Join the WhatsApp group</span></a></li>
+          </ul>
+        </div>
+        <div class="card left">
+          <span class="tape" aria-hidden="true"></span>
+          <h2 class="label">Please note</h2>
+          <p style="padding-top:10px">We welcome conversations and reflections.</p>
+          <p class="soft" style="padding-top:8px;font-size:16px;line-height:1.7">We are unable to offer individual advice, counselling or professional services through this platform.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="foot gutter">
+  <div class="wrap">
+    <img src="logo.png" alt="Insight Circle" width="43" height="56">
+    <p>Insight Circle is a reflective space. It is not a service, clinic or advisory platform.<br>© 2026 Insight Circle</p>
+    <div class="foot-links">
+      <a href="team.html"><span class="u">The team</span></a>
+      <a href="https://www.instagram.com/insightcircle.in/"><span class="u">Instagram</span></a>
+      <a href="https://chat.whatsapp.com/JpQEXyG48XyFv5FRiEaklS"><span class="u">WhatsApp group</span></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var f=document.getElementById('contact-form'), s=document.getElementById('status');
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var n=document.getElementById('name'), m=document.getElementById('email');
+    var name=n.value.trim(), email=m.value.trim();
+    if(!name || !email || email.indexOf('@')<1){
+      s.textContent='Please add your name and a valid email so we can write back.';
+      s.hidden=false; (!name?n:m).focus(); return;
+    }
+    s.textContent='Thank you. This form isn’t connected yet, so your message hasn’t been sent. Please write to us at the email address on this page for now.';
+    s.hidden=false;
+  });
+})();
+</script>
+</body>
+</html>
